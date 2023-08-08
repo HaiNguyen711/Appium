@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "appium-python"
+version = "0.1.0"
+description = ""
+authors = ["Dung Ha <dungha.tien@outlook.com>"]
+readme = "README.md"
+packages = [{include = "appium_python"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+appium-python-client = "^2.11.1"
+pytest = "^7.4.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

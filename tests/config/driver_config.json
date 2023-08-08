@@ -1,0 +1,19 @@
+{
+  "ios": {
+    "platformName": "ios",
+    "platformVersion": "13.5",
+    "deviceName": "iPhone 11 Pro MT",
+    "automationName": "XCUITest",
+    "appPackage": "",
+    "appActivity": "",
+    "noReset": "True",
+    "folder": "/Users/username/Library/Developer/Xcode/DerivedData/WordPress-bgx/Build/Products/Debug-iphonesimulator/WordPress.app"
+  },
+  "android": {
+    "deviceName": "Pixel XL API 30",
+    "platformName": "Android",
+    "automationName": "UiAutomator2",
+    "platformVersion": "11",
+    "skipUnlock": "false"
+  }
+}

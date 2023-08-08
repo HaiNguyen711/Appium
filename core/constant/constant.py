@@ -1,0 +1,2 @@
+IOS = 'IOS'
+ANDROID = 'ANDROID'
