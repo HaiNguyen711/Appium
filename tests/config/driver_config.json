@@ -7,13 +7,16 @@
     "appPackage": "",
     "appActivity": "",
     "noReset": "True",
-    "folder": "/Users/username/Library/Developer/Xcode/DerivedData/WordPress-bgx/Build/Products/Debug-iphonesimulator/WordPress.app"
+    "capabilities": {}
   },
   "android": {
-    "deviceName": "Pixel XL API 30",
+    "deviceName": "R9JN616E16J",
     "platformName": "Android",
     "automationName": "UiAutomator2",
-    "platformVersion": "11",
-    "skipUnlock": "false"
+    "appPackage": "com.example.member_portal",
+    "appActivity": "com.example.member_portal.MainActivity",
+    "platformVersion": "12",
+    "skipUnlock": "false",
+    "capabilities": {}
   }
 }

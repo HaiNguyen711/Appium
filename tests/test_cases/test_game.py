@@ -1,12 +1,9 @@
-# from base_test import BaseTest
+from test_base import TestBase
 from tests.util.logger import logger
+import pytest
 
 
-# class GameBlueLockTest(BaseTest):
-class GameBlueLockTest:
-    def __init__(self):
-        pass
-
-    def test_game(self):
+class GameBlueLockTest(TestBase):
+    def test(self):
         print('xxxxxxxxxxxxx')
         logger.info("sdafsadf")
