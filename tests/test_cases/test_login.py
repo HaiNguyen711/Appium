@@ -1,23 +1,23 @@
 from tests.test_cases.test_base import TestBase
-from time import sleep
 
-from threading import local
+from tests.pages.login_page import LoginPage
 
-import logging
+from core.util.logger import logger
 
-logger = logging.getLogger(__name__)
 
 class TestLogin(TestBase):
+    login_page: LoginPage = LoginPage()
 
     def test_login(self):
-        logger.info('asdffffffffffffffffffffffffffffffffffffffff')
-        sleep(3)
-        print('test_login')
+        logger.info('input username')
+        self.login_page.login("ma@vp.com", "password")
 
-    def test_login2(self):
-        print('test_login2')
-        sleep(15)
         logger.info("done")
+
+    # def test_login2(self):
+    #     print('test_login2')
+    #     sleep(15)
+    #     logger.info("done")
 
     # def test_login3(self):
     #     print('test_login3')

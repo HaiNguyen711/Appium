@@ -1,6 +1,5 @@
 from test_base import TestBase
-from tests.util.logger import logger
-import pytest
+from core.util.logger import logger
 
 
 class GameBlueLockTest(TestBase):

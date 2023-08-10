@@ -3,9 +3,7 @@ from pathlib import Path
 from core.driver import driver_manager
 from core.driver.driver_properties import DriverProperties
 from core.util.file_util import load_driver_properties
-import logging
-
-logger = logging.getLogger(__name__)
+from core.util.logger import logger
 
 DRIVER_CONFIG_FILE = 'driver_config.json'
 CONFIG_FOLDER = 'config'
@@ -20,8 +18,7 @@ class TestBase:
         properties: DriverProperties = load_driver_properties(config_file_path, plat_form)
         print(properties)
         if properties is not None:
-            logger.info('xxxxxxxxxxx')
-            logger.info(hash(driver_manager))
+            logger.info('init_driver')
             driver_manager.init_driver(properties)
 
     def teardown_method(self) -> None:

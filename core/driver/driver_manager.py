@@ -4,18 +4,32 @@ from appium.webdriver.webdriver import WebDriver
 
 
 class DriverManager:
-    driver: WebDriver
+    __driver: WebDriver
+    __wait_seconds = 10
 
     def __init__(self):
-        self.driver = None
+        self.__driver = None
 
     def init_driver(self, properties: DriverProperties):
         driver_created = DriverFactory().init_driver(properties)
         if driver_created is not None:
-            self.driver = driver_created
+            self.__driver = driver_created
+
+    def start_recording(self):
+        self.__driver.start_recording_screen()
+
+    def stop_recording(self):
+        self.__driver.stop_recording_screen()
+
+    def take_screen_shot(self):
+        self.__driver.get_screenshot_as_base64()
 
     def get_driver(self):
-        return self.driver
+        return self.__driver
 
     def quit_driver(self):
-        self.driver.quit()
+        self.__driver.quit()
+
+    @staticmethod
+    def get_timeout_sec() -> int:
+        return 10
