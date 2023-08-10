@@ -43,7 +43,7 @@ class DriverFactory:
         desired_caps = {
             'platformName': 'Android',
             'automationName': 'UiAutomator2',
-            'deviceName': 'R9JN616E16J',
+            'deviceName': 'emulator-5554',
             'appPackage': 'com.example.member_portal',
             'appActivity': 'com.example.member_portal.MainActivity',
             'language': 'en',

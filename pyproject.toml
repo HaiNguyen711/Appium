@@ -10,6 +10,7 @@ packages = []
 python = "^3.10"
 appium-python-client = "^2.11.1"
 pytest = "^7.4.0"
+pytest-xdist = "^3.3.1"
 
 
 [build-system]

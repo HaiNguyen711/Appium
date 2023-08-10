@@ -4,7 +4,7 @@ from core.util.logger import logger
 
 
 class LoginPage:
-    txt_username: Element = Element(Locator.xpath("//android.widget.EditText[@hint='Username Your email address']"))
+    txt_username: Element = Element(Locator.xpath("//android.widget.EditText[2]"))
     txt_password: Element = Element(Locator.xpath("//android.widget.EditText[@hint='Password']"))
     btn_sign_in: Element = Element(Locator.xpath("//android.widget.Button[@content-desc='Sign in']"))
 

@@ -6,55 +6,51 @@ class Locator:
     locator_type: LocatorType
     value: str
 
-    def __init__(self):
-        logger.info("locator init data")
-        self.locator_type = None
-        self.value = None
+    def __init__(self, locator_type: LocatorType, value: str):
+        self.locator_type = locator_type
+        self.value = value
 
     @staticmethod
     def xpath(value: str):
-        logger.info("xpath_xpath_xpath")
-        locator: Locator = Locator()
-        locator.locator_type = LocatorType.XPATH
-        locator.value = value
+        locator: Locator = Locator(LocatorType.XPATH, value)
         return locator
 
     @staticmethod
-    def id(self, value: str):
-        self.locator_type = LocatorType.ID
-        self.value = value
+    def id(value: str):
+        locator: Locator = Locator(LocatorType.ID, value)
+        return locator
 
     @staticmethod
-    def image(self, value: str):
-        self.locator_type = LocatorType.IMAGE
-        self.value = value
+    def image(value: str):
+        locator: Locator = Locator(LocatorType.IMAGE, value)
+        return locator
 
     @staticmethod
-    def link_text(self, value: str):
-        self.locator_type = LocatorType.LINK_TEXT
-        self.value = value
+    def link_text(value: str):
+        locator: Locator = Locator(LocatorType.LINK_TEXT, value)
+        return locator
 
     @staticmethod
-    def partial_link_text(self, value: str):
-        self.locator_type = LocatorType.PARTIAL_LINK_TEXT
-        self.value = value
+    def partial_link_text(value: str):
+        locator: Locator = Locator(LocatorType.PARTIAL_LINK_TEXT, value)
+        return locator
 
     @staticmethod
-    def name(self, value: str):
-        self.locator_type = LocatorType.NAME
-        self.value = value
+    def name(value: str):
+        locator: Locator = Locator(LocatorType.NAME, value)
+        return locator
 
     @staticmethod
-    def tag_name(self, value: str):
-        self.locator_type = LocatorType.TAG_NAME
-        self.value = value
+    def tag_name(value: str):
+        locator: Locator = Locator(LocatorType.TAG_NAME, value)
+        return locator
 
     @staticmethod
-    def class_name(self, value: str):
-        self.locator_type = LocatorType.CLASS_NAME
-        self.value = value
+    def class_name(value: str):
+        locator: Locator = Locator(LocatorType.CLASS_NAME, value)
+        return locator
 
     @staticmethod
-    def css_selector(self, value: str):
-        self.locator_type = LocatorType.CSS_SELECTOR
-        self.value = value
+    def css_selector(value: str):
+        locator: Locator = Locator(LocatorType.CSS_SELECTOR, value)
+        return locator

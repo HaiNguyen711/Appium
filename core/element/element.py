@@ -13,8 +13,6 @@ class Element:
     __locator: Locator
 
     def __init__(self, locator: Locator):
-        logger.info("============================xxxxxxxxxxxxxxxxx=============")
-        logger.info(locator)
         self.__locator = locator
 
     def clear(self):
@@ -23,7 +21,7 @@ class Element:
         el.clear()
 
     def enter(self, value: str) -> None:
-        self.wait_for_element_visible()
+        # self.wait_for_element_visible()
         el: WebElement = self.__get_element()
         el.send_keys(value)
 
@@ -34,7 +32,7 @@ class Element:
 
     def wait_for_element_visible(self):
         driver = driver_manager.get_driver()
-        by = self.__locator.locator_type.value
+        by = self.__locator.locator_type
         value = self.__locator.value
         return WebDriverWait(driver, driver_manager.get_timeout_sec()).until(
             EC.visibility_of_element_located((by, value)))
