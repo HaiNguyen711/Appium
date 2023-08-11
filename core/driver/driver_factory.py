@@ -27,39 +27,24 @@ class DriverFactory:
                 case constant.ANDROID:
                     logger.info("Init android driver")
                     return self.__create_android_driver(properties)
-        except:
-            logger.error("error")
-            traceback.print_exception(*sys.exc_info())
+        except Exception as ex:
+            logger.error(ex)
             return None
 
     def __create_android_driver(self, properties: DriverProperties):
         logger.info("__create_android_driver")
         options = UiAutomator2Options()
+        options.device_name = properties.device_name
         options.platform_name = properties.platform_name
         options.platformVersion = properties.platform_version
+        options.automation_name = properties.automation_name
+        options.app_package = properties.app_package
+        options.app_activity = properties.app_activity
+
         if properties.capabilities is not None:
             options.load_capabilities(properties.capabilities)
-
-        desired_caps = {
-            'platformName': 'Android',
-            'automationName': 'UiAutomator2',
-            'deviceName': 'emulator-5554',
-            'appPackage': 'com.example.member_portal',
-            'appActivity': 'com.example.member_portal.MainActivity',
-            'language': 'en',
-            'locale': 'US',
-            'noReset': False,
-            'sessionOverride': True,
-            "newCommandTimeout": 100000,
-            "adbExecTimeout": 2000000,
-            "appWaitDuration": 1500000,
-            "deviceReadyTimeout": 300,
-            'videoRecordingEnabled': True,
-            'videoRecordingDuration': 7200
-        }
         logger.info("__create_android_driver")
-        driver = webdriver.Remote('http://127.0.0.1:8000',
-                                  options=UiAutomator2Options().load_capabilities(desired_caps))
+        driver = webdriver.Remote('http://127.0.0.1:8000', options=options)
         return driver
 
     def __create_ios_driver(self, properties: DriverProperties):

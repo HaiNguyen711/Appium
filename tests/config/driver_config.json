@@ -10,13 +10,23 @@
     "capabilities": {}
   },
   "android": {
-    "deviceName": "R9JN616E16J",
+    "deviceName": "ce12171c10e9862d05",
     "platformName": "Android",
+    "platformVersion": "12",
     "automationName": "UiAutomator2",
     "appPackage": "com.example.member_portal",
     "appActivity": "com.example.member_portal.MainActivity",
-    "platformVersion": "12",
-    "skipUnlock": "false",
-    "capabilities": {}
+    "capabilities": {
+      "language": "en",
+      "locale": "US",
+      "noReset": false,
+      "sessionOverride": true,
+      "newCommandTimeout": 100000,
+      "adbExecTimeout": 2000000,
+      "appWaitDuration": 1500000,
+      "deviceReadyTimeout": 300,
+      "videoRecordingEnabled": true,
+      "videoRecordingDuration": 7200
+    }
   }
 }

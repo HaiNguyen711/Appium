@@ -1,11 +1,9 @@
 from core.driver.driver_properties import DriverProperties
+from core.util.logger import logger
 import json
-import traceback
-import sys
 
 
 def load_driver_properties(file_path: str, plat_form: str) -> DriverProperties:
-    print('xxxx')
     try:
 
         with open(file_path) as json_file:
@@ -25,8 +23,8 @@ def load_driver_properties(file_path: str, plat_form: str) -> DriverProperties:
                                           app_package,
                                           app_activity,
                                           capabilities)
-            print(properties)
             return properties
-    except:
-        traceback.print_exception(*sys.exc_info())
+    except Exception as ex:
+        logger.error(ex)
+        logger.error("load driver property error")
         return None
