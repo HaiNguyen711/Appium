@@ -7,6 +7,7 @@
     "appPackage": "",
     "appActivity": "",
     "noReset": "True",
+    "remote_url": "http://127.0.0.1:8000",
     "capabilities": {}
   },
   "android": {
@@ -16,6 +17,7 @@
     "automationName": "UiAutomator2",
     "appPackage": "com.example.member_portal",
     "appActivity": "com.example.member_portal.MainActivity",
+    "remote_url": "http://127.0.0.1:8000",
     "capabilities": {
       "language": "en",
       "locale": "US",

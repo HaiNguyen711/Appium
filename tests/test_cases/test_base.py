@@ -1,5 +1,5 @@
 from pathlib import Path
-
+from typing import Optional
 from core.driver import driver_manager
 from core.driver.driver_properties import DriverProperties
 from core.util.file_util import load_driver_properties

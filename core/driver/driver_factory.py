@@ -1,18 +1,11 @@
 from appium import webdriver
-from appium.webdriver.webdriver import WebDriver
 from appium.options.android import UiAutomator2Options
 from appium.options.ios import XCUITestOptions
+from appium.webdriver.webdriver import WebDriver
+
+from core.util.logger import logger
 from core.constant import constant
 from core.driver.driver_properties import DriverProperties
-import traceback
-import sys
-
-import logging
-
-logger = logging.getLogger(__name__)
-
-APPIUM_PORT = 8000
-APPIUM_HOST = '127.0.0.1'
 
 
 class DriverFactory:
@@ -44,7 +37,7 @@ class DriverFactory:
         if properties.capabilities is not None:
             options.load_capabilities(properties.capabilities)
         logger.info("__create_android_driver")
-        driver = webdriver.Remote('http://127.0.0.1:8000', options=options)
+        driver = webdriver.Remote(properties.remote_url, options=options)
         return driver
 
     def __create_ios_driver(self, properties: DriverProperties):
@@ -53,4 +46,4 @@ class DriverFactory:
         options.platformVersion = properties.platform_version
         if properties.capabilities is not None:
             options.load_capabilities(properties.capabilities)
-        return webdriver.Remote(f'http://{APPIUM_HOST}:{APPIUM_PORT}', options=options)
+        return webdriver.Remote(properties.remote_url, options=options)

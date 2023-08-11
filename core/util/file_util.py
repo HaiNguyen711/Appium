@@ -16,13 +16,15 @@ def load_driver_properties(file_path: str, plat_form: str) -> DriverProperties:
             app_package = plat_form_data['appPackage']
             app_activity = plat_form_data['appActivity']
             capabilities = plat_form_data['capabilities']
+            remote_url = plat_form_data['remote_url']
             properties = DriverProperties(platform_name,
                                           platform_version,
                                           device_name,
                                           automation_name,
                                           app_package,
                                           app_activity,
-                                          capabilities)
+                                          capabilities,
+                                          remote_url)
             return properties
     except Exception as ex:
         logger.error(ex)

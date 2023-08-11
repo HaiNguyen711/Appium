@@ -9,6 +9,7 @@ class DriverProperties:
     app_package: str
     app_activity: str
     capabilities: Dict
+    remote_url: str
 
     def __init__(self, platform_name: str,
                  platform_version: str,
@@ -16,7 +17,8 @@ class DriverProperties:
                  automation_name: str,
                  app_package: str,
                  app_activity: str,
-                 capabilities: Dict):
+                 capabilities: Dict,
+                 remote_url: str):
         self.platform_name = platform_name
         self.platform_version = platform_version
         self.device_name = device_name
@@ -24,3 +26,4 @@ class DriverProperties:
         self.app_package = app_package
         self.app_activity = app_activity
         self.capabilities = capabilities
+        self.remote_url = remote_url
