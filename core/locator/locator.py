@@ -18,32 +18,32 @@ class Locator:
 
     @staticmethod
     def id(value: str):
-        locator: Locator = Locator(AppiumBy.XPATH, value)
+        locator: Locator = Locator(AppiumBy.ID, value)
         return locator
 
     @staticmethod
     def image(value: str):
-        locator: Locator = Locator(AppiumBy.XPATH, value)
+        locator: Locator = Locator(AppiumBy.IMAGE, value)
         return locator
 
     @staticmethod
     def link_text(value: str):
-        locator: Locator = Locator(AppiumBy.XPATH, value)
+        locator: Locator = Locator(AppiumBy.LINK_TEXT, value)
         return locator
 
     @staticmethod
     def partial_link_text(value: str):
-        locator: Locator = Locator(AppiumBy.XPATH, value)
+        locator: Locator = Locator(AppiumBy.PARTIAL_LINK_TEXT, value)
         return locator
 
     @staticmethod
     def name(value: str):
-        locator: Locator = Locator(AppiumBy.XPATH, value)
+        locator: Locator = Locator(AppiumBy.NAME, value)
         return locator
 
     @staticmethod
     def tag_name(value: str):
-        locator: Locator = Locator(AppiumBy.XPATH, value)
+        locator: Locator = Locator(AppiumBy.TAG_NAME, value)
         return locator
 
     @staticmethod
@@ -54,6 +54,11 @@ class Locator:
     @staticmethod
     def css_selector(value: str):
         locator: Locator = Locator(AppiumBy.CSS_SELECTOR, value)
+        return locator
+
+    @staticmethod
+    def accessibility_id(value: str):
+        locator: Locator = Locator(AppiumBy.ACCESSIBILITY_ID, value)
         return locator
 
     def get_by(self) -> AppiumBy:
@@ -90,3 +95,6 @@ class Locator:
 
             case AppiumBy.CSS_SELECTOR:
                 return AppiumBy.CSS_SELECTOR
+
+            case AppiumBy.ACCESSIBILITY_ID:
+                return AppiumBy.ACCESSIBILITY_ID

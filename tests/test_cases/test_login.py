@@ -1,6 +1,7 @@
 from tests.test_cases.test_base import TestBase
 
 from tests.pages.login_page import LoginPage
+from tests.pages.discover_page import DiscoverPage
 
 from core.util.logger import logger
 from time import sleep
@@ -8,35 +9,20 @@ from time import sleep
 
 class TestLogin(TestBase):
     login_page: LoginPage = LoginPage()
+    discover_page: DiscoverPage
 
     def test_login(self):
         logger.info('input username')
-        self.login_page.login("ma@vp.com", "password")
-        logger.info("test_login_1_1")
-        sleep(1)
-        logger.info("test_login_1_2")
-        logger.info("test_login_1_3")
-        sleep(3)
-        logger.info("test_login_1_4")
-        logger.info("test_login_1_5")
-        sleep(1)
-        logger.info("test_login_1_6")
-        logger.info("test_login_1_7")
-        logger.info("test_login_1_8")
-        logger.info("done")
+        self.discover_page = self.login_page.login("ma@vp.com", "password")
 
-    # def test_login2(self):
-    #     print('test_login2_1')
-    #     print('test_login2_2')
-    #     print('test_login2_3')
-    #     sleep(1)
-    #     print('test_login2_4')
-    #     print('test_login2_5')
-    #     print('test_login2_6')
-    #     sleep(4)
-    #     print('test_login2_7')
-    #     print('test_login2_8')
-    #     logger.info("done")
+        assert self.discover_page.is_displayed_title() is True, "Doesn't displayed voucher paradise title"
+
+    def test_login2(self):
+        logger.info('input username')
+        self.login_page.login_fail("ma@vp.com", "password_error")
+
+        logger.info("verify error message displayed")
+        assert self.login_page.is_displayed_error_message() is True, "Doesn't displayed error message"
     #
     # def test_login3(self):
     #     sleep(1)

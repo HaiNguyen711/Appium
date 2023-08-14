@@ -29,6 +29,34 @@ class Element:
         el: WebElement = self.__get_element()
         el.click()
 
+    def check(self):
+        self.wait_for_element_visible()
+        if self.is_selected() is False:
+            self.__get_element().click()
+
+    def un_check(self):
+        self.wait_for_element_visible()
+        if self.is_selected() is True:
+            self.__get_element().click()
+
+    def is_displayed(self) -> bool:
+        self.wait_for_element_visible()
+        return self.__get_element().is_displayed()
+
+    def get_text(self) -> str:
+        self.wait_for_element_visible()
+        return self.__get_element().text
+
+    def get_attribute(self, attr) -> str:
+        self.wait_for_element_visible()
+        return self.__get_element().get_attribute(attr)
+
+    def is_enabled(self) -> bool:
+        return self.__get_element().is_enabled()
+
+    def is_selected(self) -> bool:
+        return self.__get_element().is_selected()
+
     def wait_for_element_visible(self):
         driver = driver_manager.get_driver()
         by: str = self.__locator.get_by_value()
@@ -48,13 +76,3 @@ class Element:
             return el
         except Exception as ex:
             logger.error(ex)
-
-    def __find_image(self, image_path: str) -> WebElement:
-        __driver = driver_manager.get_driver()
-        if self.__locator.get_by() is AppiumBy.IMAGE:
-            with open(image_path, 'rb') as file:
-                base64_data = base64.b64encode(file.read()).decode('UTF-8')
-            el = __driver.find_element(by=AppiumBy.IMAGE, value=base64_data)
-            return el
-        else:
-            return None
