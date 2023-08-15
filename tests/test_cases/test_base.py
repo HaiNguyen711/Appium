@@ -13,7 +13,8 @@ class TestBase:
     def setup_method(self) -> None:
         logger.info("setup_method")
         plat_form = 'android'
-        config_file_path = Path.cwd().parent.joinpath(CONFIG_FOLDER).joinpath(DRIVER_CONFIG_FILE)
+        config_file_path = Path(__file__).parent.parent.joinpath(CONFIG_FOLDER).joinpath(DRIVER_CONFIG_FILE)
+        logger.info(config_file_path)
 
         properties: DriverProperties = load_driver_properties(config_file_path, plat_form)
         print(properties)
