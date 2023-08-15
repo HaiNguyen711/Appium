@@ -1,5 +1,5 @@
 from tests.test_cases.test_base import TestBase
-
+import allure
 from tests.pages.login_page import LoginPage
 from tests.pages.discover_page import DiscoverPage
 
@@ -13,8 +13,10 @@ class TestLogin(TestBase):
 
     def test_login(self):
         logger.info('input username')
+        allure.step("Input username and password")
         self.discover_page = self.login_page.login("ma@vp.com", "password")
 
+        allure.step("Verify page title 'voucher paradise' displayed")
         assert self.discover_page.is_displayed_title() is True, "Doesn't displayed voucher paradise title"
 
     def test_login2(self):
