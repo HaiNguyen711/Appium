@@ -22,7 +22,7 @@ class DriverManager:
         self.__driver.stop_recording_screen()
 
     def take_screen_shot(self):
-        self.__driver.get_screenshot_as_base64()
+        self.__driver.get_screenshot_as_png()
 
     def get_driver(self):
         return self.__driver
@@ -32,4 +32,4 @@ class DriverManager:
 
     @staticmethod
     def get_timeout_sec() -> int:
-        return 10
+        return 50

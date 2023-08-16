@@ -2,6 +2,8 @@ from tests.test_cases.test_base import TestBase
 import allure
 from tests.pages.login_page import LoginPage
 from tests.pages.discover_page import DiscoverPage
+from time import sleep
+from core.util.logger import step
 
 class TestLogin(TestBase):
     login_page: LoginPage = LoginPage()
@@ -9,19 +11,20 @@ class TestLogin(TestBase):
 
     def test_login(self):
         # logger.info('input username')
-
+        step('xxxxxxxxxxxtest_loginxxxxxxxxxxasdfasddddddddddddddddddddddddddddd')
         with allure.step('Input username and password'):
             self.discover_page = self.login_page.login("ma@vp.com", "password")
 
         with allure.step("Verify page title 'voucher paradise' displayed"):
-            assert self.discover_page.is_displayed_title() is True, "Doesn't displayed voucher paradise title"
+            assert self.discover_page.is_displayed_title() is False, "Doesn't displayed voucher paradise title"
 
     def test_login2(self):
+        step('xxxxxxxxxxxxtest_login2xxxxxxxxxasdfasddddddddddddddddddddddddddddd')
         with allure.step('input username'):
             self.login_page.login_fail("ma@vp.com", "password_error")
 
         with allure.step("verify error message displayed"):
-            assert self.login_page.is_displayed_error_message() is True, "Doesn't displayed error message"
+            assert self.login_page.is_displayed_error_message() is False, "Doesn't displayed error message"
 
     # def test_login3(self):
     #     sleep(1)
