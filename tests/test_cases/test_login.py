@@ -3,7 +3,7 @@ import allure
 from tests.pages.login_page import LoginPage
 from tests.pages.discover_page import DiscoverPage
 
-# from core.util.logger import logger
+from core.util.logger import logger
 # from core.util.logger import step
 # from time import sleep
 
@@ -15,13 +15,14 @@ class TestLogin(TestBase):
     def test_login(self):
         # logger.info('input username')
 
-        # allure.step("Input username and password")
+        logger.info("Input username and password")
         # step('Input username and password')
-        with allure.step("Input username and password"):
-            self.discover_page = self.login_page.login("ma@vp.com", "password")
+        # with allure.step("Input username and password"):
+        self.discover_page = self.login_page.login("ma@vp.com", "password")
 
-        with allure.step("Verify page title 'voucher paradise' displayed"):
-            assert self.discover_page.is_displayed_title() is True, "Doesn't displayed voucher paradise title"
+        # with allure.step("Verify page title 'voucher paradise' displayed"):
+        logger.info("Verify page title 'voucher paradise' displayed")
+        assert self.discover_page.is_displayed_title() is True, "Doesn't displayed voucher paradise title"
 
     # def test_login2(self):
     #     logger.info('input username')
