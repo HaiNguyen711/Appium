@@ -3,6 +3,7 @@ from core.locator.locator import Locator
 from core.util.logger import logger
 from tests.pages.discover_page import DiscoverPage
 from core.element.image import Image
+from tests.data_objects.user import User
 
 
 class LoginPage:
@@ -20,7 +21,10 @@ class LoginPage:
     def __init__(self):
         logger.info("login page init data")
 
-    def login(self, username: str, password: str):
+    def login(self, user: User):
+        return self.__login(user.get_username(), user.get_password())
+
+    def __login(self, username: str, password: str):
         self.txt_username.enter(username)
         self.txt_password.click()
         self.txt_password.enter(password)

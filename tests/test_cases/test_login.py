@@ -1,57 +1,30 @@
-from tests.test_cases.test_base import TestBase
 import allure
-from tests.pages.login_page import LoginPage
+import pytest
+
+from tests.helper.assert_helper import AssertHelper
 from tests.pages.discover_page import DiscoverPage
-from time import sleep
-from core.util.logger import step
+from tests.pages.login_page import LoginPage
+from tests.test_cases.test_base import TestBase
+from tests.constant.constant import Constant
+
 
 class TestLogin(TestBase):
     login_page: LoginPage = LoginPage()
     discover_page: DiscoverPage
 
+    @pytest.mark.C001
     def test_login(self):
-        # logger.info('input username')
-        step('xxxxxxxxxxxtest_loginxxxxxxxxxxasdfasddddddddddddddddddddddddddddd')
         with allure.step('Input username and password'):
-            self.discover_page = self.login_page.login("ma@vp.com", "password")
+            self.discover_page = self.login_page.login(Constant.USER)
 
         with allure.step("Verify page title 'voucher paradise' displayed"):
-            assert self.discover_page.is_displayed_title() is False, "Doesn't displayed voucher paradise title"
+            AssertHelper.assert_true(self.discover_page.is_displayed_title(),
+                                     "Doesn't displayed voucher paradise title")
 
+    @pytest.mark.C002
     def test_login2(self):
-        step('xxxxxxxxxxxxtest_login2xxxxxxxxxasdfasddddddddddddddddddddddddddddd')
         with allure.step('input username'):
             self.login_page.login_fail("ma@vp.com", "password_error")
 
         with allure.step("verify error message displayed"):
-            assert self.login_page.is_displayed_error_message() is False, "Doesn't displayed error message"
-
-    # def test_login3(self):
-    #     sleep(1)
-    #     print('test_login3_1')
-    #     print('test_login3_2')
-    #     sleep(2)
-    #     print('test_login3_3')
-    #     sleep(1)
-    #     print('test_login3_4')
-    #     print('test_login3_5')
-    #     sleep(1)
-    #     print('test_login3_6')
-    #     print('test_login3_7')
-    #     print('test_login3_8')
-    #     sleep(1)
-    #     print('test_login3_9')
-    #
-    # def test_login4(self):
-    #     print('test_login4_1')
-    #     print('test_login4_2')
-    #     sleep(1)
-    #     print('test_login4_3')
-    #     sleep(1)
-    #     print('test_login4_4')
-    #     sleep(4)
-    #     print('test_login4_5')
-    #     print('test_login4_6')
-    #     print('test_login4_7')
-    #     sleep(1)
-    #     print('test_login4_8')
+            AssertHelper.assert_true(self.login_page.is_displayed_error_message(), "Doesn't displayed error message")
